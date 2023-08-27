@@ -131,5 +131,69 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     date
     ```
-    
 </details>
+
+<details>
+  <summary><h2><b>Section 6: Installing Packages for Active Directory Integration</b></h2></summary>
+  <br>
+
+  In this section, we'll be installing the required packages that are essential for integrating UbuntuServer00 into the Active Directory domain.
+
+  **Step 1: Install Packages**:  
+  - Open a terminal on `UbuntuServer00`.
+
+  - Run the following command to install the necessary packages for Active Directory integration:
+    ```bash
+    sudo apt install realmd sssd-ad sssd-tools realmd adcli krb5-user
+    ```
+  
+  - This command will install various packages required for interacting with Active Directory services.
+
+</details>
+
+<details>
+  <summary><h2><b>Section 6: Discovering and Joining the Active Directory Domain</b></h2></summary>
+  <br>
+
+  **Description:** In this section, we'll discover the Active Directory domain and join it using the packages we installed earlier. Joining the domain will enable seamless authentication and access to domain resources.
+
+  - **Step 1: Discover the Domain**:  
+    Run the following command to discover the Active Directory domain:
+    ```bash
+    sudo realm discover STREETRACK.COM
+    ```
+    This command will provide information about the Active Directory realm, such as its domain controllers and supported authentication mechanisms.
+
+  - **Step 2: Join the Domain**:  
+    Run the following command to join the Ubuntu Server to the Active Directory domain:
+    ```bash
+    sudo realm join STREETRACK.COM --user=thuynh808
+    ```
+    Replace `thuynh808` with a domain user account that has privileges to join machines to the domain. You'll be prompted to enter the password for the user.
+
+  - **Step 3: Verify the Joining**:  
+    After successful domain joining, you can verify it using the following command:
+    ```bash
+    sudo realm list
+    ```
+    This command should display the details of the joined domain, including its name, domain controller, and configured realm.
+
+  - **Step 4: Update PAM Configuration**:  
+    Run the following command to update the Pluggable Authentication Module (PAM) configuration:
+    ```bash
+    sudo sed -i 's/use_fully_qualified_names = True/use_fully_qualified_names = False/g' /etc/sssd/sssd.conf
+    ```
+    This modification allows users to log in using their domain username without specifying the fully qualified name.
+
+  - **Step 5: Restart SSSD Service**:  
+    After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect:
+    ```bash
+    sudo service sssd restart
+    ```
+
+  **Good Practice:**  
+  Joining the domain allows for centralized authentication and resource access. Regularly verify the domain's status using `realm list` and monitor the SSSD service for any errors.
+
+  By following these steps, you'll successfully integrate Ubuntu Server into the Active Directory domain, enabling seamless authentication and access to domain resources for users on the server.
+</details>
+
