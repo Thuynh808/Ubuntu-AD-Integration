@@ -42,11 +42,18 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     During the installation, reach the "Network Connections" section.
     Ensure that you are provided an IP within the range of the DC, which is between `10.2.22.100-200`.
     In this example, we were allocated the IP `10.2.22.104`.
+  
+  - **Step 3: Profile Setup**:  
+    Here we will setup our profile:
+      - Your name: Thong Huynh
+      - Your server's name: ubuntuserver00
+      - Pick a username: thuynh808
+      - Password: ************
 
   - **Step 3: SSH Setup**:  
     Proceed to the SSH setup and select "Install OpenSSH server".
 
-  - **Step 4: Complete Installation and Access Login**:  
+  - **Step 4: Complete Installation and Login**:  
     Once the installation is completed, select "Reboot Now".
     After the system reboots, press Enter, and your login prompt will appear.
 
