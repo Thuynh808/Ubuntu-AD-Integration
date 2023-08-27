@@ -174,9 +174,9 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   - **Step 2: Join the Domain**:  
     Run the following command to join the Ubuntu Server to the Active Directory domain:
     ```bash
-    sudo realm join STREETRACK.COM --user=thuynh808
+    sudo realm join STREETRACK.COM
     ```
-    Replace `thuynh808` with a domain user account that has privileges to join machines to the domain. You'll be prompted to enter the password for the user.
+    We'll then input our domain Administrator password
 
   - **Step 3: Verify the Joining**:  
     After successful domain joining, you can verify it using the following command:
@@ -188,15 +188,95 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   - **Step 4: Update PAM Configuration**:  
     Run the following command to update the Pluggable Authentication Module (PAM) configuration:
     ```bash
-    sudo sed -i 's/use_fully_qualified_names = True/use_fully_qualified_names = False/g' /etc/sssd/sssd.conf
+    sudo nano /etc/pam.d/common-session
     ```
-    This modification allows users to log in using their domain username without specifying the fully qualified name.
+    We're going to add an entry"
+      - session optional    pam_mkhomedir.so
 
-  - **Step 5: Restart SSSD Service**:  
-    After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect:
+    This configuration will auto create a home directory for a user's first time log in.
+
+    Save and Exit with:
     ```bash
-    sudo service sssd restart
+    Ctrl + O , Enter , Ctrl + X
     ```
+
+  - **Step 5: Update krb45.conf**:
+    Run the following command to update the krb5.conf file:
+    ```bash
+    sudo nano /etc/krb5.conf
+    ```
+    Here we'll add 4 entries:
+      - udp_preference_limit = 0
+      - rdns = False
+      - dns_lookup_kdc = True
+      - dns_lookup_realms = True
+
+    Save and Exit with:
+    ```bash
+    Ctrl + O , Enter , Ctrl + X
+
+  - **Step 6: Update SSSD Service**:
+    Run the following command to update the System Security Servicess Daemon (SSSD):
+    ```bash
+    sudo nano /etc/sssd/sssd.conf
+    ```
+    Here we'll add 2 entries:
+      - krb5_keytab = /etc/krb5.keytab
+      - ldap_keytab_init_creds = True
+
+    Save and Exit with:
+    ```bash
+    Ctrl + O , Enter , Ctrl + X
+    ```
+
+    After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect and check its status to make sure its configured properly:
+    ```bash
+    sudo systemctl restart sssd
+    ```
+    ```bash
+    sudo systemctl status sssd
+    ```
+</details>
+
+<details>
+  <summary><h2><b>Section 7: Verifying Active Directory Authentication</b></h2></summary>
+  <br>
+
+  To ensure that Active Directory authentication is working properly, we will perform the following steps:
+
+  **Step 1: Logging in with Domain Admin Account:**
+  - Log in to the Ubuntu Server (`UbuntuServer00`).
+  - Use your Active Directory domain admin credentials to log in. For example:
+    ```bash
+    su - thuynh@streetrack.com
+    ```
+    Replace `thuynh` with your domain admin username and `streetrack.com` with your domain.
+
+  **Step 2: Adding Domain Admin to sudoers List:**
+  - To allow your domain admin to execute administrative commands, add the domain admin to the `sudoers` list.
+    - Edit the sudoers file using the `visudo` command.
+      ```bash
+      sudo visudo
+      ```
+    - Add the following line to the file, replacing `thuynh` with your domain admin username:
+      ```plaintext
+      thuynh ALL=(ALL:ALL) ALL
+      ```
+    - Save and exit the editor.
+
+  **Step 3: Log Out and Log In with Regular AD User:**
+  - Log out from the current session with the domain admin account.
+    ```bash
+    exit
+    ```
+  - Log in again using a different Active Directory user account to verify that general AD users can also authenticate and access the server.
+    ```bash
+    su - pcoulson@streetrack.com
+    ```
+    Replace `pcoulson` with the actual username of another AD user and `streetrack.com` with your domain.
+
+</details>
+
 
   **Good Practice:**  
   Joining the domain allows for centralized authentication and resource access. Regularly verify the domain's status using `realm list` and monitor the SSSD service for any errors.
