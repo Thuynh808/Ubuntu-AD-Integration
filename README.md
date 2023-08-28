@@ -285,10 +285,10 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
 </details>
 
+## __Conclusion__
+  
+  In conclusion, our successful integration of Ubuntu Server into the Active Directory domain showcases our prowess in bridging diverse systems. Thanks to Kerberos and LDAP, authentication is seamless, enhancing security and user interaction. This success reflects our preparedness for intricate IT landscapes, propelling us forward on our journey.
 
-  **Good Practice:**  
-  Joining the domain allows for centralized authentication and resource access. Regularly verify the domain's status using `realm list` and monitor the SSSD service for any errors.
 
-  By following these steps, you'll successfully integrate Ubuntu Server into the Active Directory domain, enabling seamless authentication and access to domain resources for users on the server.
 </details>
 
