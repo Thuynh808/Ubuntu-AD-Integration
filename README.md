@@ -146,15 +146,15 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
   In this section, we'll be installing the required packages that are essential for integrating UbuntuServer00 into the Active Directory domain.
 
-  **Step 1: Install Packages**:  
-  - Open a terminal on `UbuntuServer00`.
+  - **Step 1: Install Packages**:  
+    Open a terminal on `UbuntuServer00`.
 
-  - Run the following command to install the necessary packages for Active Directory integration:
+    Run the following command to install the necessary packages for Active Directory integration:
     ```bash
     sudo apt install sssd-ad sssd-tools realmd packagekit krb5-user adcli
     ```
   
-  - This command will install various packages required for interacting with Active Directory services.
+    This command will install various packages required for interacting with Active Directory services.
 
 </details>
 
@@ -162,7 +162,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   <summary><h2><b>Section 6: Discovering and Joining the Active Directory Domain</b></h2></summary>
   <br>
 
-  **Description:** In this section, we'll discover the Active Directory domain and join it using the packages we installed earlier. Joining the domain will enable seamless authentication and access to domain resources.
+  In this section, we'll discover the Active Directory domain and join it using the packages we installed earlier. Joining the domain will enable seamless authentication and access to domain resources.
 
   - **Step 1: Discover the Domain**:  
     Run the following command to discover the Active Directory domain:
@@ -229,7 +229,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     Ctrl + O , Enter , Ctrl + X
     ```
 
-    After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect and check its status to make sure its configured properly:
+  After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect and check its status to make sure its configured properly:
     ```bash
     sudo systemctl restart sssd
     ```
@@ -239,13 +239,13 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 </details>
 
 <details>
-  <summary><h2><b>Section 7: Verifying Active Directory Authentication</b></h2></summary>
+  <summary><h2><b>Section 8: Verifying Active Directory Authentication</b></h2></summary>
   <br>
 
   To ensure that Active Directory authentication is working properly, we will perform the following steps:
 
-  **Step 1: Logging in with Domain Admin Account:**
-  - Log in to the Ubuntu Server (`UbuntuServer00`).
+  - **Step 1: Logging in with Domain Admin Account:**
+    Log in to the Ubuntu Server (`UbuntuServer00`).
   - We'll use our Active Directory domain admin credentials to log in:
     ```bash
     sudo login thuynh@streetrack.com
@@ -257,31 +257,31 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
     Looks like our ticket has been issued for us!
 
-  **Step 2: Adding Domain Admin to sudoers List:**
-  - To allow your domain admin to execute administrative commands, add the domain admin to the `sudoers` list.
-    - Edit the sudoers file using the `visudo` command.
-      ```bash
-      sudo visudo
-      ```
-    - Add the following line to the file, replacing `thuynh` with your domain admin username:
-      ```plaintext
-      thuynh ALL=(ALL:ALL) ALL
-      ```
-    - Save and exit the editor.\
+  - **Step 2: Adding Domain Admin to sudoers List:**
+    To allow your domain admin to execute administrative commands, add the domain admin to the `sudoers` list.
+    Edit the sudoers file using the `visudo` command.
+    ```bash
+    sudo visudo
+    ```
+    Add the following line to the file, replacing `thuynh` with your domain admin username:
+    ```plaintext
+    thuynh ALL=(ALL:ALL) ALL
+    ```
+    Save and exit the editor.
    
-    - Here we've confirmed that (`thuynh@Streetrack.com`) has sudo priveleges.
+    Here we've confirmed that (`thuynh@Streetrack.com`) has sudo priveleges.
 
-  **Step 3: Log Out and Log In with Regular AD User:**
-  - Log out from the current session with the domain admin account.
+  - **Step 3: Log Out and Log In with Regular AD User:**
+    Log out from the current session with the domain admin account.
     ```bash
     exit
     ```
-  - Log in again using a different Active Directory user account to verify that general AD users can also authenticate and access the server.
+    Log in again using a different Active Directory user account to verify that general AD users can also authenticate and access the server.
     ```bash
     su - pcoulson@streetrack.com
     ```
 
-    Excellent! We can call it for this section.
+    Excellent! 
 
 </details>
 
