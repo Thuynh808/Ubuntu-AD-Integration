@@ -151,7 +151,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
   - Run the following command to install the necessary packages for Active Directory integration:
     ```bash
-    sudo apt install realmd sssd-ad sssd-tools realmd adcli krb5-user
+    sudo apt install sssd-ad sssd-tools realmd packagekit krb5-user adcli
     ```
   
   - This command will install various packages required for interacting with Active Directory services.
@@ -174,7 +174,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   - **Step 2: Join the Domain**:  
     Run the following command to join the Ubuntu Server to the Active Directory domain:
     ```bash
-    sudo realm join STREETRACK.COM
+    sudo realm join -v STREETRACK.COM
     ```
     We'll then input our domain Administrator password
 
@@ -246,11 +246,16 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
   **Step 1: Logging in with Domain Admin Account:**
   - Log in to the Ubuntu Server (`UbuntuServer00`).
-  - Use your Active Directory domain admin credentials to log in. For example:
+  - We'll use our Active Directory domain admin credentials to log in:
     ```bash
-    su - thuynh@streetrack.com
+    sudo login thuynh@streetrack.com
     ```
-    Replace `thuynh` with your domain admin username and `streetrack.com` with your domain.
+    Great! We're in! Now let's confirm that we were issued a kerberos ticket for authentication:
+    ```bash
+    klist
+    ```
+
+    Looks like our ticket has been issued for us!
 
   **Step 2: Adding Domain Admin to sudoers List:**
   - To allow your domain admin to execute administrative commands, add the domain admin to the `sudoers` list.
@@ -262,7 +267,9 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
       ```plaintext
       thuynh ALL=(ALL:ALL) ALL
       ```
-    - Save and exit the editor.
+    - Save and exit the editor.\
+   
+    - Here we've confirmed that (`thuynh@Streetrack.com`) has sudo priveleges.
 
   **Step 3: Log Out and Log In with Regular AD User:**
   - Log out from the current session with the domain admin account.
@@ -273,7 +280,8 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     su - pcoulson@streetrack.com
     ```
-    Replace `pcoulson` with the actual username of another AD user and `streetrack.com` with your domain.
+
+    Excellent! We can call it for this section.
 
 </details>
 
