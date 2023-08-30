@@ -110,15 +110,14 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 <details>
   <summary><h2><b>Section 4: Accessing UbuntuServer00 via SSH from Domain Controller</b></h2></summary>
   <br>
-  Now that our server is updated and equipped with necessary tools, let's establish a secure SSH connection to it from the Domain Controller.
+  Now that our server is updated and equipped with necessary tools, let's establish a secure SSH connection to it from the Domain Controller.<br>
 
   - **Step 1: Confirm Server IP Address**:
     Run `ifconfig` on `UbuntuServer00` to display the network details and confirm its IP address.
     ```bash
     ifconfig
     ```
-    <br><br>
-
+    <br>
   ![Image 2](https://i.imgur.com/PSbLdjt.png)
 <br><br>
   
@@ -128,8 +127,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     ssh thuynh808@10.2.22.104
     ```
-    <br><br>
-
+    <br>
   ![Image 2](https://i.imgur.com/PSbLdjt.png)
 <br><br>
 
