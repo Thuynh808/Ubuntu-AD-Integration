@@ -42,26 +42,41 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   In this section, we will go through the installation process for Ubuntu Server and prepare it for integration with the Active Directory environment.
 
   - **Step 1: Begin Installations**:  
-    Boot up the `UbuntuServer00` VM from the ISO images and start the installation process.
+    Boot up the `UbuntuServer00` VM from the ISO images and start the installation process.<br><br>
+
+  ![Image 2](https://i.imgur.com/7QGI7d9.png)
+<br><br>
 
   - **Step 2: Network Connections**:  
     During the installation, reach the "Network Connections" section.
     Ensure that you are provided an IP within the range of the DC, which is between `10.2.22.100-200`.
-    In this example, we were allocated the IP `10.2.22.104`.
+    In this example, we were allocated the IP `10.2.22.104`.<br><br>
+
+  ![Image 2](https://i.imgur.com/2woJCXg.png)
+<br><br>
   
   - **Step 3: Profile Setup**:  
     Here we will setup our profile:
       - Your name: Thong Huynh
       - Your server's name: ubuntuserver00
       - Pick a username: thuynh808
-      - Password: ************
+      - Password: ************<br><br>
+
+  ![Image 2](https://i.imgur.com/xZXu4zn.png)
+<br><br>
 
   - **Step 3: SSH Setup**:  
-    Proceed to the SSH setup and select "Install OpenSSH server".
+    Proceed to the SSH setup and select "Install OpenSSH server".<br><br>
+
+  ![Image 2](https://i.imgur.com/PqhsFd1.png)
+<br><br>
 
   - **Step 4: Complete Installation and Login**:  
     Once the installation is completed, select "Reboot Now".
-    After the system reboots, press Enter, and your login prompt will appear.
+    After the system reboots, press Enter, and the login prompt will appear.<br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
 
   Awesome! We've successfully installed UbuntuServer00!
 
