@@ -132,12 +132,18 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
   ![Image 2](https://i.imgur.com/PSbLdjt.png)
 <br><br>
-  
+
   - **Step 3: Accept Host Key and Complete Connection**:
-    Upon connecting for the first time, we'll be prompted to accept the host key. Verify the fingerprint, type (`yes`) and press Enter.
+    Upon connecting for the first time, we'll be prompted to accept the host key. Verify the fingerprint, type (`yes`) and press Enter.<br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
   
   - **Step 4: Enter Password**:
-    After accepting the host key, you will be prompted for your password. Enter the password you set up for `UbuntuServer00`.
+    After accepting the host key, you will be prompted for your password. Enter the password you set up for `UbuntuServer00`.<br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
 
 </details>
 
@@ -151,24 +157,40 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     sudo su -
     ```
+    <br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
     
   - **Step 2: Set Date and Time Manually**:
     Set the date and time manually using the `date` command. Replace `YYYY-MM-DD` with the desired date and `HH:MM:SS` with the desired time in 24-hour format.
     ```bash
     date -s "YYYY-MM-DD HH:MM:SS"
     ```
+    <br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
     
   - **Step 3: Set Time Zone to US/Hawaii**:
     Change the system's time zone to "US/Hawaii" using the `timedatectl` command.
     ```bash
     timedatectl set-timezone US/Hawaii
     ```
+    <br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
     
   - **Step 4: Verify Domain Time Sync**:
     Verify if the time on your Ubuntu server is synced with the domain controller's time
     ```bash
     date
     ```
+    <br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
 </details>
 
 <details>
