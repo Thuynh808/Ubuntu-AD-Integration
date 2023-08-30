@@ -236,14 +236,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     sudo systemctl status sssd
     ```
-    
-    ```bash
-    sudo systemctl restart sssd
-    ```
 
-    ```bash
-    sudo systemctl status sssd
-    ```
 </details>
 
 <details>
