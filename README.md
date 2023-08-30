@@ -29,7 +29,10 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
   - **Step 2: Confirm Network Interface Card (NIC) Settings**:  
     On `UbuntuServer00`, set the NIC to "Internal Network".
-    Make sure it aligns with the DC's internal network settings.
+    Make sure it aligns with the DC's internal network settings.<br><br>
+
+  ![Image 2](https://i.imgur.com/4gJND4G.png)
+<br><br>
 
 </details>
 
