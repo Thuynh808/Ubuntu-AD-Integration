@@ -230,6 +230,12 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```
 
   After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect and check its status to make sure its configured properly:
+    ```bash
+    sudo systemctl restart sssd
+    ```
+    ```bash
+    sudo systemctl status sssd
+    ```
     
     ```bash
     sudo systemctl restart sssd
