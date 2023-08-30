@@ -88,7 +88,10 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   After installing Ubuntu Server, we'll ensure that it's up to date and install additional network tools for troubleshooting and configuration.
 
   - **Step 1: Log in to the Ubuntu Server**:  
-    Use the username and password created during the installation to log in.
+    Use the username and password created during the installation to log in.<br><br>
+
+  ![Image 2](https://i.imgur.com/9o0oH2z.png)
+<br><br>
   
   - **Step 2: Update the System**:  
     Run the following command to update the package list and install the latest versions.
@@ -114,6 +117,10 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     ifconfig
     ```
+    <br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
   
   - **Step 2: SSH from Domain Controller**:
     Open the Command Prompt on the Domain Controller.
@@ -121,10 +128,13 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     ssh thuynh808@10.2.22.104
     ```
-    Replace `thuynh808` with your Ubuntu Server username.
+    <br><br>
+
+  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+<br><br>
   
   - **Step 3: Accept Host Key and Complete Connection**:
-    Upon connecting for the first time, you will be prompted to accept the host key. Verify the fingerprint, type `yes`, and press Enter.
+    Upon connecting for the first time, we'll be prompted to accept the host key. Verify the fingerprint, type (`yes`) and press Enter.
   
   - **Step 4: Enter Password**:
     After accepting the host key, you will be prompted for your password. Enter the password you set up for `UbuntuServer00`.
