@@ -264,8 +264,8 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```
 <br><br>
 
-  - **Step 5: Update krb45.conf**:
-    Run the following command to update the krb5.conf file:
+  - **Step 5: Update krb5.conf**: <br>
+    Run the following command to update the krb5.conf file: <br><br>
     ```bash
     sudo nano /etc/krb5.conf
     ```
@@ -283,8 +283,8 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```
 <br><br>
 
-  - **Step 6: Update SSSD Service**:
-    The following command will let us update the System Security Servicess Daemon (SSSD):
+  - **Step 6: Update SSSD Service**: <br>
+    The following command will let us update the System Security Servicess Daemon (SSSD): <br><br>
     ```bash
     sudo nano /etc/sssd/sssd.conf
     ```
@@ -299,9 +299,9 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     Ctrl + O , Enter , Ctrl + X
     ```
 <br><br>
-
-    After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect and check its status to make sure its configured properly:
-    ```bash
+  - **Step 7: Restart SSSD Service**: <br>
+    After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect and check its status to make sure its configured properly: <br><br>
+    ```bash 
     sudo systemctl restart sssd
     ```
     ```bash
@@ -312,6 +312,8 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 <br><br>
   ![Image 2](https://i.imgur.com/83bzxUW.png) 
 <br><br>
+
+  We can see that we've successfully joined the the realm with entries to the keytab and sssd is restarted and enabled. 
 
 </details>
 
