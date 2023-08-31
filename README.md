@@ -236,25 +236,33 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     sudo realm list
     ```
-    This command should display the details of the joined domain, including its name, domain controller, and configured realm.
-            
+    This should display the details of the joined domain, including its name, domain controller, and configured realm.
+    We can also check our DC's Active Directory Users and Computers and verify `UBUNTUSERVER00` under Computers.
+
   ![Image 2](https://i.imgur.com/dGsl7DW.png)
 <br><br>
 
+  ![Image 2](https://i.imgur.com/rmzK7lB.png)
+<br><br>
+
   - **Step 4: Update PAM Configuration**:  <br>
-    Run the following command to update the Pluggable Authentication Module (PAM) configuration:
+    Run the following command to update the Pluggable Authentication Module (PAM) configuration: <br><br>
     ```bash
     sudo nano /etc/pam.d/common-session
     ```
-    We're going to add an entry"
-      - session optional    pam_mkhomedir.so
-
-    This configuration will auto create a home directory for a user's first time log in.
-
-    Save and Exit with:
+    We're going to add an entry: <br><br>
     ```bash
+    session optional    pam_mkhomedir.so
+    ```
+    This configuration will auto create a home directory for a user's first time log in.
+            
+  ![Image 2](https://i.imgur.com/uF75hfi.png) 
+<br><br>
+    Save and Exit with: <br>
+    ```
     Ctrl + O , Enter , Ctrl + X
     ```
+<br><br>
 
   - **Step 5: Update krb45.conf**:
     Run the following command to update the krb5.conf file:
