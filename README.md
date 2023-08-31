@@ -20,8 +20,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
 <details>
   <summary><h2><b>Section 1: Pre-Installation Checks</b></h2></summary>
-  <br>
-  Before beginning the installation process, we need to perform some preliminary checks to ensure a smooth setup.
+  Before beginning the installation process, we need to perform some preliminary checks to ensure a smooth setup.<br><br>
 
   - **Step 1: Validate Domain Controller (DC) Settings**:  
     Ensure that the Windows Server 2019 Domain Controller is up and running.
@@ -38,9 +37,8 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
 <details>
   <summary><h2><b>Section 2: Installing UbuntuServer00</b></h2></summary>
-  <br>
-  In this section, we will go through the installation process for Ubuntu Server and prepare it for integration with the Active Directory environment.
-
+  In this section, we will go through the installation process for Ubuntu Server and prepare it for integration with the Active Directory environment.<br><br>
+  
   - **Step 1: Begin Installations**:  
     Boot up the `UbuntuServer00` VM from the ISO images and start the installation process.<br><br>
 
@@ -84,8 +82,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
 <details>
   <summary><h2><b>Section 3: Initial Server Updates and Installing net-tools</b></h2></summary>
-  <br>
-  After installing Ubuntu Server, we'll ensure that it's up to date and install additional network tools for troubleshooting and configuration.
+  After installing Ubuntu Server, we'll ensure that it's up to date and install additional network tools for troubleshooting and configuration.<br><br>
 
   - **Step 1: Log in to the Ubuntu Server**:  
     Use the username and password created during the installation to log in.<br><br>
@@ -109,25 +106,24 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
 <details>
   <summary><h2><b>Section 4: Accessing UbuntuServer00 via SSH from Domain Controller</b></h2></summary>
-  <br>
-  Now that our server is updated and equipped with necessary tools, let's establish a secure SSH connection to it from the Domain Controller.<br>
+  Now that our server is updated and equipped with necessary tools, let's establish a secure SSH connection to it from the Domain Controller.<br><br>
 
-  - **Step 1: Confirm Server IP Address**:
-    Run `ifconfig` on `UbuntuServer00` to display the network details and confirm its IP address.
+  - **Step 1: Confirm Server IP Address**:   
+    Run `ifconfig` on `UbuntuServer00` to display the network details and confirm its IP address.<br><br>
     ```bash
     ifconfig
-    ```
+    ``` 
     <br>
   ![Image 2](https://i.imgur.com/PSbLdjt.png)
 <br><br>
   
-  - **Step 2: SSH from Domain Controller**:
+  - **Step 2: SSH from Domain Controller**:   
     Open the Command Prompt on the Domain Controller.
     Use the `ssh` command to initiate a connection to `UbuntuServer00`.
     ```bash
     ssh thuynh808@10.2.22.104
     ```
-    <br>
+<br>
   ![Image 2](https://i.imgur.com/PSbLdjt.png)
 <br><br>
 
