@@ -106,7 +106,8 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
 <details>
   <summary><h2><b>Section 4: Accessing UbuntuServer00 via SSH from Domain Controller</b></h2></summary>
-  Now that our server is updated and equipped with necessary tools, let's establish a secure SSH connection to it from the Domain Controller.<br><br>
+  Now that our server is updated and equipped with necessary tools, let's establish a secure SSH connection to it from the Domain Controller. 
+ <br><br>
 
   - **Step 1: Confirm Server IP Address**:   
     Run `ifconfig` on `UbuntuServer00` to display the network details and confirm its IP address.<br><br>
@@ -114,7 +115,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ifconfig
     ``` 
     <br>
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+  ![Image 2](https://i.imgur.com/5zVVujx.png)
 <br><br>
   
   - **Step 2: SSH from Domain Controller**:   
@@ -123,21 +124,16 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     ssh thuynh808@10.2.22.104
     ```
-<br>
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
-<br><br>
-
+    
   - **Step 3: Accept Host Key and Complete Connection**:
-    Upon connecting for the first time, we'll be prompted to accept the host key. Verify the fingerprint, type (`yes`) and press Enter.<br><br>
-
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
-<br><br>
-  
+    Upon connecting for the first time, we'll be prompted to accept the host key. Verify the fingerprint, type (`yes`) and press Enter.
+    
   - **Step 4: Enter Password**:
-    After accepting the host key, you will be prompted for your password. Enter the password you set up for `UbuntuServer00`.<br><br>
+    After accepting the host key,  we'll input the password we created for `UbuntuServer00`.<br><br>
 
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+  ![Image 2](https://i.imgur.com/QC9nIrz.png)
 <br><br>
+  Great! we were able to successfully SSH from the `DC` into our `Ubuntuserver00`
 
 </details>
 
