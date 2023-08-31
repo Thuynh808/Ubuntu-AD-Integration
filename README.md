@@ -133,54 +133,52 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 
   ![Image 2](https://i.imgur.com/QC9nIrz.png)
 <br><br>
+  
   Great! we were able to successfully SSH from the `DC` into our `Ubuntuserver00`
 
 </details>
 
 <details>
   <summary><h2><b>Section 5: Setting Date, Time, and Time Zone</b></h2></summary>
-  <br>
-  To ensure accurate time synchronization within the domain, we'll set the date, time, and time zone for the Ubuntu Server.
+  To ensure accurate time synchronization within the domain, we'll set the date, time, and time zone for the `Ubuntuserver00` <br><br>
 
   - **Step 1: Switch to Root User**:
-    Switch to the root user to have the necessary permissions for changing the date, time, and time zone.
+    Switch to the root user to have the necessary permissions for changing the date, time, and time zone. <br><br>
     ```bash
     sudo su -
     ```
-    <br><br>
-
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
-<br><br>
     
   - **Step 2: Set Date and Time Manually**:
-    Set the date and time manually using the `date` command. Replace `YYYY-MM-DD` with the desired date and `HH:MM:SS` with the desired time in 24-hour format.
+    Set the date and time manually using the `date` command. Replace `YYYY-MM-DD` with the desired date and `HH:MM:SS` with the desired time in 24-hour format. <br><br>
     ```bash
     date -s "YYYY-MM-DD HH:MM:SS"
     ```
-    <br><br>
-
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+    <br>
+  ![Image 2](https://i.imgur.com/wjqIdjr.png)
 <br><br>
     
   - **Step 3: Set Time Zone to US/Hawaii**:
-    Change the system's time zone to "US/Hawaii" using the `timedatectl` command.
+    Change the system's time zone to "US/Hawaii" using the `timedatectl` command. <br><br>
     ```bash
     timedatectl set-timezone US/Hawaii
     ```
-    <br><br>
+    <br>
 
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+  ![Image 2](https://i.imgur.com/hUOUyhh.png)
 <br><br>
     
   - **Step 4: Verify Domain Time Sync**:
-    Verify if the time on your Ubuntu server is synced with the domain controller's time
+    Verify if the time on our Ubuntu server is synced with the domain controller's time
     ```bash
     date
     ```
-    <br><br>
+    <br>
 
-  ![Image 2](https://i.imgur.com/PSbLdjt.png)
+  ![Image 2](https://i.imgur.com/yixlaxk.png)
 <br><br>
+
+  So far so good! We've confirmed that both the `DC` and `Ubuntuserver00` are time synced. Matching the time between them is crucial for smooth and secure communication, accurate event recording, and reliable authentication within the network.
+  
 </details>
 
 <details>
