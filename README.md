@@ -274,24 +274,31 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
       - rdns = False
       - dns_lookup_kdc = True
       - dns_lookup_realms = True
-
-    Save and Exit with:
-    ```bash
+        
+  ![Image 2](https://i.imgur.com/5UatQaW.png) 
+<br><br>
+    Save and Exit with: <br>
+    ```
     Ctrl + O , Enter , Ctrl + X
+    ```
+<br><br>
 
   - **Step 6: Update SSSD Service**:
-    Run the following command to update the System Security Servicess Daemon (SSSD):
+    The following command will let us update the System Security Servicess Daemon (SSSD):
     ```bash
     sudo nano /etc/sssd/sssd.conf
     ```
-    Here we'll add 2 entries:
+    Here we'll add 2 entries and make sure everything else is there:
       - krb5_keytab = /etc/krb5.keytab
       - ldap_keytab_init_creds = True
-
-    Save and Exit with:
-    ```bash
+        
+  ![Image 2](https://i.imgur.com/wXxUeWw.png) 
+<br><br>
+    Save and Exit with: <br>
+    ```
     Ctrl + O , Enter , Ctrl + X
     ```
+<br><br>
 
     After updating the configuration, restart the System Security Services Daemon (SSSD) for changes to take effect and check its status to make sure its configured properly:
     ```bash
@@ -300,6 +307,11 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     sudo systemctl status sssd
     ```
+ <br><br>
+  ![Image 2](https://i.imgur.com/9gH2Vi0.png) 
+<br><br>
+  ![Image 2](https://i.imgur.com/83bzxUW.png) 
+<br><br>
 
 </details>
 
