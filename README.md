@@ -113,8 +113,8 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     Run `ifconfig` on `UbuntuServer00` to display the network details and confirm its IP address.<br><br>
     ```bash
     ifconfig
-    ``` 
-    <br>
+    ```
+    
   ![Image 2](https://i.imgur.com/5zVVujx.png)
 <br><br>
   
@@ -129,7 +129,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     Upon connecting for the first time, we'll be prompted to accept the host key. Verify the fingerprint, type (`yes`) and press Enter.
     
   - **Step 4: Enter Password**:
-    After accepting the host key,  we'll input the password we created for `UbuntuServer00`.<br><br>
+    After accepting the host key,  we'll input the password we created for `UbuntuServer00`.<br>
 
   ![Image 2](https://i.imgur.com/QC9nIrz.png)
 <br><br>
@@ -143,17 +143,18 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   To ensure accurate time synchronization within the domain, we'll set the date, time, and time zone for the `Ubuntuserver00` <br><br>
 
   - **Step 1: Switch to Root User**:
-    Switch to the root user to have the necessary permissions for changing the date, time, and time zone. <br><br>
+    Switch to the root user to have the necessary permissions for changing the date, time, and time zone. <br>
     ```bash
     sudo su -
     ```
+    <br>
     
   - **Step 2: Set Date and Time Manually**:
-    Set the date and time manually using the `date` command. Replace `YYYY-MM-DD` with the desired date and `HH:MM:SS` with the desired time in 24-hour format. <br><br>
+    Set the date and time manually using the `date` command. Replace `YYYY-MM-DD` with the desired date and `HH:MM:SS` with the desired time in 24-hour format. <br>
     ```bash
     date -s "YYYY-MM-DD HH:MM:SS"
     ```
-    <br>
+    
   ![Image 2](https://i.imgur.com/wjqIdjr.png)
 <br><br>
     
@@ -162,17 +163,15 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     timedatectl set-timezone US/Hawaii
     ```
-    <br>
 
   ![Image 2](https://i.imgur.com/hUOUyhh.png)
 <br><br>
     
   - **Step 4: Verify Domain Time Sync**:
-    Verify if the time on our Ubuntu server is synced with the domain controller's time
+    Verify if the time on our Ubuntu server is synced with the domain controller's time <br><br>
     ```bash
     date
     ```
-    <br>
 
   ![Image 2](https://i.imgur.com/yixlaxk.png)
 <br><br>
@@ -194,8 +193,15 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ```bash
     sudo apt install sssd-ad sssd-tools realmd packagekit krb5-user adcli
     ```
-  
-    This command will install various packages required for interacting with Active Directory services.
+  <br>
+    
+  - **Step 2 : Kerberos Default Realm**: <br>
+    Set Kerberos Authentication Default Realm: `STREETRACK.COM`
+
+  ![Image 2](https://i.imgur.com/4MaKeNT.png)
+<br><br>
+
+  Setting the Kerberos version 5 realm defines a secure space where users and systems can authenticate and access resources within our network. Kerberos will be authenticating our Active Directory users. It will use a system of encrypted tickets to verify users. 
 
 </details>
 
