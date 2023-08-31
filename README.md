@@ -1,11 +1,11 @@
 # Ubuntu-Active Directory Integration Lab
 
+  ![Image 2](https://i.imgur.com/zZWNfBP.png)
+<br><br>
+
 ## Objective
 
 The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) into an existing Active Directory environment (`Streetrack.com`). This will enable centralized management of user credentials, enhanced security, and a seamless user experience. <br><br>
-
-  ![Image 2](https://i.imgur.com/zZWNfBP.png)
-<br><br>
 
 ## Components
 
