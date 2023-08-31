@@ -125,11 +125,11 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
     ssh thuynh808@10.2.22.104
     ```
     
-  - **Step 3: Accept Host Key and Complete Connection**:
+  - **Step 3: Accept Host Key and Complete Connection**: <br>
     Upon connecting for the first time, we'll be prompted to accept the host key. Verify the fingerprint, type (`yes`) and press Enter.
     
-  - **Step 4: Enter Password**:
-    After accepting the host key,  we'll input the password we created for `UbuntuServer00`.<br>
+  - **Step 4: Enter Password**: <br>
+    After accepting the host key,  we'll input the password we created for `UbuntuServer00`. <br>
 
   ![Image 2](https://i.imgur.com/QC9nIrz.png)
 <br><br>
@@ -142,14 +142,14 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   <summary><h2><b>Section 5: Setting Date, Time, and Time Zone</b></h2></summary>
   To ensure accurate time synchronization within the domain, we'll set the date, time, and time zone for the `Ubuntuserver00` <br><br>
 
-  - **Step 1: Switch to Root User**:
+  - **Step 1: Switch to Root User**: <br>
     Switch to the root user to have the necessary permissions for changing the date, time, and time zone. <br>
     ```bash
     sudo su -
     ```
     <br>
     
-  - **Step 2: Set Date and Time Manually**:
+  - **Step 2: Set Date and Time Manually**: <br>
     Set the date and time manually using the `date` command. Replace `YYYY-MM-DD` with the desired date and `HH:MM:SS` with the desired time in 24-hour format. <br>
     ```bash
     date -s "YYYY-MM-DD HH:MM:SS"
@@ -158,7 +158,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   ![Image 2](https://i.imgur.com/wjqIdjr.png)
 <br><br>
     
-  - **Step 3: Set Time Zone to US/Hawaii**:
+  - **Step 3: Set Time Zone to US/Hawaii**: <br>
     Change the system's time zone to "US/Hawaii" using the `timedatectl` command. <br><br>
     ```bash
     timedatectl set-timezone US/Hawaii
@@ -167,7 +167,7 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
   ![Image 2](https://i.imgur.com/hUOUyhh.png)
 <br><br>
     
-  - **Step 4: Verify Domain Time Sync**:
+  - **Step 4: Verify Domain Time Sync**: <br>
     Verify if the time on our Ubuntu server is synced with the domain controller's time <br><br>
     ```bash
     date
@@ -206,33 +206,42 @@ The goal of this project is to integrate an Ubuntu Server (`UbuntuServer00`) int
 </details>
 
 <details>
-  <summary><h2><b>Section 6: Discovering and Joining the Active Directory Domain</b></h2></summary>
+  <summary><h2><b>Section 7: Active Directory Integration Process</b></h2></summary>
   <br>
 
-  In this section, we'll discover the Active Directory domain and join it using the packages we installed earlier. Joining the domain will enable seamless authentication and access to domain resources.
+  In this section, we'll discover the Active Directory domain and join it using the packages we installed earlier. Joining the domain will enable access to domain resources. We will also configure package files for proper authentication. 
 
-  - **Step 1: Discover the Domain**:  
-    Run the following command to discover the Active Directory domain:
+  - **Step 1: Discover the Domain**: <br>
+    Run the command to discover the Active Directory domain: <br><br>
     ```bash
     sudo realm discover STREETRACK.COM
     ```
     This command will provide information about the Active Directory realm, such as its domain controllers and supported authentication mechanisms.
+    
+  ![Image 2](https://i.imgur.com/ozoacBJ.png)
+<br><br>
 
-  - **Step 2: Join the Domain**:  
-    Run the following command to join the Ubuntu Server to the Active Directory domain:
+  - **Step 2: Join the Domain**:  <br>
+    Run the following command to join the Ubuntu Server to the Active Directory domain: <br><br>
     ```bash
     sudo realm join -v STREETRACK.COM
     ```
     We'll then input our domain Administrator password
+        
+  ![Image 2](https://i.imgur.com/P9C7poE.png)
+<br><br>
 
-  - **Step 3: Verify the Joining**:  
-    After successful domain joining, you can verify it using the following command:
+  - **Step 3: Verify the Joining**:  <br>
+    After successful domain joining, you can verify it using the following command: <br><br>
     ```bash
     sudo realm list
     ```
     This command should display the details of the joined domain, including its name, domain controller, and configured realm.
+            
+  ![Image 2](https://i.imgur.com/dGsl7DW.png)
+<br><br>
 
-  - **Step 4: Update PAM Configuration**:  
+  - **Step 4: Update PAM Configuration**:  <br>
     Run the following command to update the Pluggable Authentication Module (PAM) configuration:
     ```bash
     sudo nano /etc/pam.d/common-session
